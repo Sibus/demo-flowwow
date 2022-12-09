@@ -61,7 +61,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $oxrClient = Yii::createObject(\app\api\oxr\Client::class);
+        $dto = $oxrClient->latest('USD');
+        dump($dto);
     }
 
     /**
